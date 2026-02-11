@@ -7,6 +7,14 @@ const assert = std.debug.assert;
 const math = std.math;
 const testing = std.testing;
 
+const DEFAULT_SEED: u64 = 0x1BD45F20E4641744;
+
+const HashPair = struct {
+    hash1: u32,
+    hash2: u32,
+};
+
+/// A Bloom filter variant that supports deletion.
 pub fn CountingBloomFilter(comptime Counter: type) type {
     return struct {
         const Self = @This();
@@ -135,13 +143,6 @@ fn computeNumberOfIndexesPerItem(p: f64) usize {
     const k = -@log2(p);
     return @max(1, @as(usize, @intFromFloat(@ceil(k))));
 }
-
-const DEFAULT_SEED: u64 = 0x1BD45F20E4641744;
-
-const HashPair = struct {
-    hash1: u32,
-    hash2: u32,
-};
 
 fn computeHashPair(seed: u64, value: []const u8) HashPair {
     const hash = std.hash.XxHash3.hash(seed, value);
