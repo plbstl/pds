@@ -39,7 +39,7 @@ pub fn init(
     );
 }
 
-/// Initializes a Bloom filter with an explicit hash seed.
+/// Initializes the filter with an explicit hash seed.
 ///
 /// `expected_items` must be greater than zero.
 ///
