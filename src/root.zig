@@ -4,6 +4,7 @@
 //!
 
 pub const BloomFilter = @import("BloomFilter.zig");
+pub const CountingBloomFilter = @import("CountingBloomFilter.zig").CountingBloomFilter;
 
 test {
     @import("std").testing.refAllDecls(@This());
