@@ -43,6 +43,7 @@ pub fn CountingBloomFilter(comptime Counter: type) type {
             hash_seed: u64,
         ) Allocator.Error!Self {
             assert(@typeInfo(Counter) == .int);
+            assert(@typeInfo(Counter).int.signedness == .unsigned);
             assert(expected_items > 0);
             assert(error_rate > 0 and error_rate < 1);
             assert(hash_seed != 0);
