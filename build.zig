@@ -17,6 +17,9 @@ pub fn build(b: *std.Build) void {
     const run_pds_mod_tests = b.addRunArtifact(pds_mod_tests);
     test_step.dependOn(&run_pds_mod_tests.step);
 
+    // zig build check (zls)
+    const check_step = b.step("check", "Check if examples compile");
+
     // zig build <example_name> [-Drun]
     const run_opt = b.option(bool, "run", "Auto run the example program after build") orelse false;
     for (examples) |example_name| {
@@ -35,6 +38,9 @@ pub fn build(b: *std.Build) void {
                 },
             }),
         });
+
+        // zig build check (zls)
+        check_step.dependOn(&exe.step);
 
         const exe_install = b.addInstallArtifact(exe, .{});
         build_step.dependOn(&exe_install.step);
