@@ -54,4 +54,6 @@ pub fn build(b: *std.Build) void {
     }
 }
 
-const examples = [_][]const u8{};
+const examples = [_][]const u8{
+    "bloom_filter",
+};
