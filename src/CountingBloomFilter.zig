@@ -13,6 +13,9 @@ const HashPair = struct {
 
 /// A Bloom filter variant that supports deletion.
 pub fn CountingBloomFilter(comptime Counter: type) type {
+    assert(@typeInfo(Counter) == .int);
+    assert(@typeInfo(Counter).int.signedness == .unsigned);
+
     return struct {
         const Self = @This();
 
@@ -47,8 +50,6 @@ pub fn CountingBloomFilter(comptime Counter: type) type {
             error_rate: f64,
             hash_seed: u64,
         ) Allocator.Error!Self {
-            assert(@typeInfo(Counter) == .int);
-            assert(@typeInfo(Counter).int.signedness == .unsigned);
             assert(expected_items > 0);
             assert(error_rate > 0 and error_rate < 1);
             assert(hash_seed != 0);
