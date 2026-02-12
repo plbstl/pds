@@ -1,10 +1,14 @@
 # PDS
 
-Probabilistic data structures in Zig.
+Probabilistic data structures written in Zig.
+
+- BloomFilter
+- CountingBloomFilter
+- CuckooFilter
 
 ## Simple helper program to generate a custom seed
 
-> This is intended for generating a compile-time constant, not for runtime use.
+> Generate compile-time constant. Not for runtime use.
 
 Run `zig init` in an empty folder and replace `src/main.zig` with this:
 
