@@ -57,4 +57,5 @@ pub fn build(b: *std.Build) void {
 const examples = [_][]const u8{
     "bloom_filter",
     "counting_bloom_filter",
+    "cuckoo_filter",
 };
