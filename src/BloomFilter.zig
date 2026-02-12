@@ -1,6 +1,6 @@
 //! Probabilistic set for fast membership tests.
 //!
-//! Guarantees no false negatives, but may return false
+//! False negatives are not possible, but may return false
 //! positives. Items cannot be removed once inserted.
 
 const BloomFilter = @This();

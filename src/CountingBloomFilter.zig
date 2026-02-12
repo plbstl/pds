@@ -1,6 +1,3 @@
-//! A Bloom filter variant that supports deletion.
-//!
-
 const std = @import("std");
 const Allocator = std.mem.Allocator;
 const assert = std.debug.assert;
