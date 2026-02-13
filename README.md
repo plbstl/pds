@@ -6,6 +6,15 @@ Probabilistic data structures written in Zig.
 - CountingBloomFilter
 - CuckooFilter
 
+## Examples
+
+Build and run examples with `zig build <example_name> [-Drun]`. For example:
+
+```bash
+zig build bloom_filter # build binary to zig-out
+zig build cuckoo_filter -Drun # build binary and also run the program
+```
+
 ## Simple helper program to generate a custom seed
 
 > Generate compile-time constant. Not for runtime use.
